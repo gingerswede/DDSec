@@ -1,0 +1,29 @@
+﻿<Window x:Class="BetterDDSec.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BetterDDSec"
+        xmlns:Views="clr-namespace:BetterDDSec.Views"
+        mc:Ignorable="d"
+        Title="Better Domain Driven Security" Height="450" Width="450"
+        >
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*" />
+            <RowDefinition Height="92*" />
+        </Grid.RowDefinitions>
+        <Grid x:Name="grdMenu" Grid.Row="0">
+            <Menu HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                <MenuItem Header="Add New User" Margin="4" Click="evntGoToRegisterNew" />
+                <MenuItem Header="List All Users" Margin="4" Click="evntGoToListAll" />
+                <MenuItem Header="List All Users as Text" Margin="4" Click="evntGoToListAllAsText" />
+                <MenuItem Header="Close" Margin="4" Click="evntCloseApp" />
+            </Menu>
+        </Grid>
+        <Grid x:Name="grdContent" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Views:RegisterUser />
+        </Grid>
+    </Grid>
+</Window>
+

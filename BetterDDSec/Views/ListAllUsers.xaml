@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="BetterDDSec.Views.ListAllUsers"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BetterDDSec.Views"
+             xmlns:models="clr-namespace:BetterDDSec.Models"
+             xmlns:converters="clr-namespace:BetterDDSec.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="450" 
+             BindingGroup="{Binding Users, RelativeSource={RelativeSource AncestorType=UserControl}}">
+    <UserControl.Resources>
+        <converters:StringDevivatesToStringConverter x:Key="ToString" />
+        <DataTemplate x:Key="UserTemplate" DataType="{x:Type models:User}">
+            <Grid HorizontalAlignment="Stretch" Width="auto">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*" />
+                    <ColumnDefinition Width="15*" />
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="5*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Text="{Binding Path=FullName, Mode=TwoWay, Converter={StaticResource ToString}}" Margin="4" Grid.Column="0" HorizontalAlignment="Stretch" />
+                <TextBox Text="{Binding Path=Email, Mode=TwoWay, Converter={StaticResource ToString}}" Margin="4" Grid.Column="1" HorizontalAlignment="Stretch" />
+                <TextBox Text="{Binding Path=BirthYear, Mode=TwoWay, Converter={StaticResource ToString}}" Margin="4" Grid.Column="2" HorizontalAlignment="Stretch" />
+                <Button Content="Save" Click="evntSaveUser" Margin="4" Grid.Column="3" HorizontalAlignment="Stretch" />
+                <Button Content="Delete" Click="evntDeleteUser" Margin="4" Grid.Column="4" HorizontalAlignment="Stretch" />
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Grid>
+        <ListView ItemsSource="{Binding Users, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                  ItemTemplate="{StaticResource UserTemplate}" 
+                  HorizontalAlignment="Stretch"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+    </Grid>
+</UserControl>

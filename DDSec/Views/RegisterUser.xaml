@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="BadDDSec.Views.RegisterUser"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BadDDSec.Views"
+             xmlns:models="clr-namespace:BadDDSec.Models"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="450" 
+             BindingGroup="{Binding User}">
+
+
+    <StackPanel HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Orientation="Vertical">
+        <Label x:Name="lblTitle" HorizontalAlignment="Center" VerticalAlignment="Top" Content="Register User" FontSize="24" />
+
+        <Grid x:Name="grdFirstName" Margin="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <Label x:Name="lblFirstName" Content="First name:" Grid.Column="0" HorizontalAlignment="Right" />
+            <TextBox x:Name="txtFirstName" Grid.Column="1" HorizontalAlignment="Stretch" Text="{Binding FirstName, Mode=TwoWay}" />
+        </Grid>
+        <Grid x:Name="grdLastName" Margin="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <Label x:Name="lblLastName" Content="Last name:" Grid.Column="0" HorizontalAlignment="Right" />
+            <TextBox x:Name="txtLastName" Grid.Column="1" HorizontalAlignment="Stretch" Text="{Binding LastName, Mode=TwoWay}" />
+        </Grid>
+
+        <Grid x:Name="grdEmail" Margin="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <Label x:Name="lblEmail" Content="E-mail:" Grid.Column="0" HorizontalAlignment="Right" />
+            <TextBox x:Name="txtEmail" Grid.Column="1" HorizontalAlignment="Stretch" Text="{Binding Email, Mode=TwoWay}" />
+        </Grid>
+
+
+        <Grid x:Name="grdBirthYear" Margin="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <Label x:Name="lblBirthYear" Content="birth year:" Grid.Column="0" HorizontalAlignment="Right" />
+            <TextBox x:Name="txtBirthYear" Grid.Column="1" HorizontalAlignment="Stretch" Text="{Binding BirthYear, Mode=TwoWay}" />
+        </Grid>
+
+        <Grid x:Name="grdButtons" Margin="4 16" Height="24">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnSave" Content="Save" Grid.Column="1" Click="evntSave" />
+            <Button x:Name="btnCancel" Content="Cancel" Grid.Column="3" Click="evntClear" />
+        </Grid>
+    </StackPanel>
+</UserControl>
